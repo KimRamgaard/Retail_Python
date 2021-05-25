@@ -1,8 +1,6 @@
 # Retail_Python
 
 ## How to start the project(hopefully)
-Install python 3
-
 Go to API Folder and type(for windows only):
 venv\Scripts\activate
 
