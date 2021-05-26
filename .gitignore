@@ -2,3 +2,5 @@ venv
 .vscode
 __pycache__
 README.MD
+CustomerAPI/src/__pycache__/CustomerAPI.cpython-39.pyc
+CustomerAPI/src/__pycache__/models.cpython-39.pyc
