@@ -1,10 +1,11 @@
 from fastapi import FastAPI
 from typing import Optional
+import schemas
 import models
 
 app = FastAPI()
 
-mockOrders = models.generateMockProducts(10)
+mockOrders = schemas.generateMockProducts(10)
 
 
 @app.get("/")
@@ -18,12 +19,12 @@ async def get_order_by_ID(productId):
 
 
 @app.post("/product")
-async def create_Order(Product: models.Product):
+async def create_Order(Product: schemas.Product):
     #this should save the order to DB
     return Product
 
 
 @app.put("/product/{id}")
-async def change_Order(id: int, product: models.Product):
+async def change_Order(id: int, product: schemas.Product):
     #this should save the order to DB
     return product
