@@ -1,23 +1,39 @@
-from pydantic import BaseModel
-from typing import Optional
+from typing import Collection
+from config import settings
+from faunadb.client import FaunaClient
+from faunadb import query
+
+client = FaunaClient(secret=settings.db_secret)
+
+indexes = client.query(query.paginate(query.indexes()))
+print(indexes)  # Returns an array of all index created for the database.
 
 
-class Product(BaseModel):
-    id: int
-    orderID: int
-    quantity: int
+class Order:
+    def __init__(self) -> None:
+        self.collection = query.collection("order")
 
+    def get_order(self, id: int):
+        pass
 
-class Order(BaseModel):
-    id: int
-    CustomerId: int
-    products: Optional[list[Product]] = None
+    def get_orders(self):
 
+        return client.query(query.paginate(query.documents(self.collection)))
 
-def generateTestOrders(x):
-    orders = []
+    def create_order(self, order_data):
+        new_order = client.query(
+            #TODO we might be able to use functions here?
+            query.create(self.collection, order_data))
 
-    for x in range(1, 10):
-        order = Order(id=x, CustomerId=x % 3 + 1)
-        orders.append(order)
-    return orders
+    def update_order(self, id: int, new_order_data):
+        try:
+            return client.query(
+                query.update(query.ref(self.collection, id), new_order_data))
+        except:
+            return None  #TODO Create error handling
+
+    def delete_order(self, id: int):
+        try:
+            return client.query(query.delete(query.ref(self.collection, id)))
+        except:
+            return None  #TODO Create error handling

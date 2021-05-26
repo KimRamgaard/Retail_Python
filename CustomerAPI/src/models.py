@@ -1,3 +1,4 @@
+from typing import Collection
 from config import settings
 from faunadb.client import FaunaClient
 from faunadb import query
@@ -24,7 +25,9 @@ class Customer:
     def get_customers(self):
 
         return client.query(
-                query.all(self.collection)
+                query.paginate(
+                    query.documents(self.collection )
+                    )
             )
 
 

@@ -1,19 +1,9 @@
 from pydantic import BaseModel
 
-'''
-class Order(BaseModel):
-    id: int
-    CustomerId: int
-'''
-
-
 class Customer(BaseModel):
     id: int
     name: str
     #orders: Optional[list[Order]] = None
-
-
-
 
 
 def generateTestCustomers(x):
