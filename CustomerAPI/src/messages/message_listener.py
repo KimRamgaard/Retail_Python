@@ -4,10 +4,10 @@ import threading
 import os
 import pika
 
-#Import customer repo here-
+from data.customer_repository import CustomerRepo
 
 class CustomerListener(threading.Thread):
-    #customer_repo = CustomerRepo()
+    customer_repo = CustomerRepo()
 
     def __init__(self, threadID, name, counter):
         threading.Thread.__init__(self)

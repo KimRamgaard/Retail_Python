@@ -4,11 +4,10 @@ import threading
 import os
 import pika
 
-# Import product Repo here.
-
+from data.product_repository import ProductRepo
 
 class ProductListener(threading.Thread):
-    #product_repo = ProductRepo()
+    product_repo = ProductRepo()
 
 
     def __init__(self, threadID, name, counter):

@@ -4,10 +4,10 @@ import threading
 import os
 import pika
 
-#Import order repo here-
+from .data.order_repository import OrderRepo
 
 class OrderListener(threading.Thread):
-    #order_repo = OrderRepo()
+    order_repo = OrderRepo()
     
     def __init__(self, threadID, name, counter):
         threading.Thread.__init__(self)
