@@ -9,7 +9,8 @@ mockOrders = schemas.generateTestCustomers(10)
 
 @app.get("/")
 async def root():
-    return models.Customer().get_customers()
+
+    return models.Customer().create_customer()
 
 
 @app.get("/{customer_id}")

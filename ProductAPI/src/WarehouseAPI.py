@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from typing import Optional
 import schemas
+import models
 
 app = FastAPI()
 
