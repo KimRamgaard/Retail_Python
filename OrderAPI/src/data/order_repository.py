@@ -1,7 +1,5 @@
 #Import DB
-
-
-from messages.message_publisher import OrderPublisher
+from ..messages.message_publisher import OrderPublisher
 
 class OrderRepo:
     #Import DB 

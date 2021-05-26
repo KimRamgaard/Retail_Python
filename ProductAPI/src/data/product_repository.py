@@ -1,6 +1,5 @@
 #Import DB
-
-from messages.message_publisher import ProductPublisher
+from ..messages.message_publisher import ProductPublisher
 
 class ProductRepo:
     #DB

@@ -1,6 +1,5 @@
 #Import DB
-
-from messages.message_publisher import CustomerPublisher
+from ..messages.message_publisher import CustomerPublisher
 
 class CustomerRepo:
     #DB : CustomerDB
