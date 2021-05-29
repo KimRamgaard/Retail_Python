@@ -5,11 +5,12 @@ import pika
 
 
 class OrderPublisher:
-
     def create_order(self, order_json):
         # Access the CLOUDAMQP_URL environment variable and parse it (fallback to localhost)
-        url = os.environ.get('CLOUDAMQP_URL', 
-                                 'amqp://mwdsvrdo:oJFb7X7G3odP7vrchz9UPCD3SDGAiABZ@cow.rmq2.cloudamqp.com/mwdsvrd')
+        url = os.environ.get(
+            'CLOUDAMQP_URL',
+            'amqp://mwdsvrdo:oJFb7X7G3odP7vrchz9UPCD3SDGAiABZ@cow.rmq2.cloudamqp.com/mwdsvrd'
+        )
         params = pika.URLParameters(url)
         connection = pika.BlockingConnection(params)
         channel = connection.channel()  # start a channel
@@ -23,8 +24,10 @@ class OrderPublisher:
 
     def cancel_order(self, order_json):
         # Access the CLOUDAMQP_URL environment variable and parse it (fallback to localhost)
-        url = os.environ.get('CLOUDAMQP_URL',
-                                 'amqp://mwdsvrdo:oJFb7X7G3odP7vrchz9UPCD3SDGAiABZ@cow.rmq2.cloudamqp.com/mwdsvrd')
+        url = os.environ.get(
+            'CLOUDAMQP_URL',
+            'amqp://mwdsvrdo:oJFb7X7G3odP7vrchz9UPCD3SDGAiABZ@cow.rmq2.cloudamqp.com/mwdsvrd'
+        )
         params = pika.URLParameters(url)
         connection = pika.BlockingConnection(params)
         channel = connection.channel()  # start a channel
@@ -38,8 +41,10 @@ class OrderPublisher:
 
     def ship_order(self, order_json):
         # Access the CLOUDAMQP_URL environment variable and parse it (fallback to localhost)
-        url = os.environ.get('CLOUDAMQP_URL',
-                                 'amqp://mwdsvrdo:oJFb7X7G3odP7vrchz9UPCD3SDGAiABZ@cow.rmq2.cloudamqp.com/mwdsvrd')
+        url = os.environ.get(
+            'CLOUDAMQP_URL',
+            'amqp://mwdsvrdo:oJFb7X7G3odP7vrchz9UPCD3SDGAiABZ@cow.rmq2.cloudamqp.com/mwdsvrd'
+        )
         params = pika.URLParameters(url)
         connection = pika.BlockingConnection(params)
         channel = connection.channel()  # start a channel

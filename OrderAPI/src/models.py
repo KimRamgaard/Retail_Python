@@ -1,20 +1,20 @@
 from typing import Collection
 from config import settings
 from faunadb.client import FaunaClient
-from faunadb import query
+from faunadb import query as q
 
 client = FaunaClient(secret=settings.db_secret)
 
-indexes = client.query(query.paginate(query.indexes()))
+indexes = client.query(q.paginate(q.indexes()))
 print(indexes)  # Returns an array of all index created for the database.
 
 
 class Order:
     def __init__(self) -> None:
-        self.collection = query.collection("order")
+        self.collection = q.collection("order")
 
     def get_order(self, id: int):
-        pass
+        return client.query(q.paginate(q.documents(q.collection('Order'))))
 
     def get_orders(self):
 
